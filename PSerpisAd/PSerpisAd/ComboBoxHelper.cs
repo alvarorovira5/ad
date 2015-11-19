@@ -18,14 +18,18 @@ namespace SerpisAd
 			ListStore listStore = new ListStore (typeof(IList));
 			//TODO localización de "sin asignar"
 			IList first = new object[]{null, "<sin asignar>"};
-			TreeIter treeIterFirst = listStore.AppendValues (first);
+
+			TreeIter treeIterId = listStore.AppendValues (first);
 			foreach (IList row in queryResult.Rows)
+				TreeIter treeIter=listStore.AppendValues(row)
+					if(row[0].Equals(id))
+						treeIter
 				listStore.AppendValues (row);
 			comboBox.Model = listStore;
 			//comboBox.Active = 0;
-			comboBox.SetActiveIter (treeIterFirst);
+			comboBox.SetActiveIter (treeIter);
 		}
-		
+
 		public static object GetId(ComboBox comboBox) {
 			TreeIter treeIter;
 			comboBox.GetActiveIter (out treeIter);

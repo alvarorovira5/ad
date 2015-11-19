@@ -29,12 +29,21 @@ public partial class MainWindow: Gtk.Window
 			delete(id);
 
 		};
+
 		treeView.Selection.Changed += delegate {
 			Console.WriteLine("Ha ocurrido un cambio");
 			deleteAction.Sensitive= TreeViewHelper.IsSelected(treeView);
+			editAction.Sensitive= TreeViewHelper.IsSelected(treeView);
 		};
 		deleteAction.Sensitive = false;
 		//newAction.Activated += newActionActivated;
+
+		//EDIT
+		editAction.Sensitive = false;
+		editAction.Activated += delegate {
+			object id = TreeViewHelper.GetId(treeView);
+			new ArticuloView(id);
+		};
 	}
 
 	public static bool ConfirmDelete(Window window){
