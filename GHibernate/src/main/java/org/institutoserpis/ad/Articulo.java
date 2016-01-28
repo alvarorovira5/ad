@@ -19,7 +19,7 @@ public class Articulo {
 	
 	
 	
-	private Articulo() {
+	Articulo() {
 	}
 
 
