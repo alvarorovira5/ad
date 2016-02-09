@@ -21,17 +21,21 @@ public class PruebaPedido {
 		
 		entityManagerFactory= Persistence.createEntityManagerFactory("org.institutoserpis.ad");
 		
-		EntityManager entityManager= entityManagerFactory.createEntityManager();
-		entityManager.getTransaction().begin();
-		List<Categoria> categorias = entityManager.createQuery("from Categoria",Categoria.class).getResultList();
-		for (Categoria categoria : categorias)
-			System.out.println(categoria);
-		entityManager.getTransaction().commit();
-		entityManager.close();
+		query();
 		
 		entityManagerFactory.close();
 		System.out.println("Fin");
 		
+	}
+	
+	private static void query(){
+		EntityManager entityManager= entityManagerFactory.createEntityManager();
+		entityManager.getTransaction().begin();
+		List<Pedido> pedidos = entityManager.createQuery("from Pedido",Pedido.class).getResultList();
+		for (Pedido pedido : pedidos)
+			System.out.println(pedido);
+		entityManager.getTransaction().commit();
+		entityManager.close();
 	}
 
 }
