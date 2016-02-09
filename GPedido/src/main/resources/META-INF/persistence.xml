@@ -15,7 +15,8 @@
         </description>
 
         <class>org.institutoserpis.ad.Articulo</class>
-
+		<class>org.institutoserpis.ad.Categoria</class>
+		<class>org.institutoserpis.ad.Cliente</class>
         <properties>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/dbprueba" />

@@ -67,6 +67,11 @@ public class Articulo {
 		this.precio = precio;
 	}
 	
+	@Override
+	public String toString(){
+		return String.format("%s %s %s %s", id, nombre, categoria, precio);
+	}
+	
 	
 	
 	

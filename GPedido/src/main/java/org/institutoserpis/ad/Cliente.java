@@ -1,7 +1,5 @@
 package org.institutoserpis.ad;
 
-import java.math.BigDecimal;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -9,7 +7,7 @@ import javax.persistence.Id;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
-public class Categoria {
+public class Cliente {
 	private long id;
 	private String nombre;
 	
@@ -41,3 +39,4 @@ public class Categoria {
 	}
 
 }
+
