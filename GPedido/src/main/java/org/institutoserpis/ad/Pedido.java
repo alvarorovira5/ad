@@ -5,6 +5,8 @@ import java.util.Calendar;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 import org.hibernate.annotations.GenericGenerator;
 
@@ -13,7 +15,7 @@ public class Pedido {
 	private long id;
 	private Cliente cliente;
 	private Calendar fecha;
-	
+	private List<PedidoLinea>
 
 	@Id
 	@GeneratedValue(generator="increment")
@@ -27,10 +29,11 @@ public class Pedido {
 		this.id = id;
 	}
 
+	@ManyToOne
+	@JoinColumn(name="cliente")
 	public Cliente getCliente() {
 		return cliente;
 	}
-
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
@@ -45,7 +48,7 @@ public class Pedido {
 	
 	@Override
 	public String toString(){
-		return String.format("%s %s %s", 
+		return String.format("%s [cliente-%s] %s", 
 				id,
 				cliente ==null ? null : cliente.getId(),
 				fecha == null ? null : fecha.getTime()
