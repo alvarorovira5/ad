@@ -55,7 +55,7 @@ public class PruebaPedido {
 		pedido.setCliente(cliente);
 		pedido.setFecha(Calendar.getInstance());
 		
-		for (Long articuloId = 1; articuloId <=3; articuloId++){
+		for (Long articuloId = 1L; articuloId <=3; articuloId++){
 			Articulo articulo = entityManager.find(Articulo.class, articuloId);
 			PedidoLinea pedidoLinea = new PedidoLinea();
 			pedidoLinea.setPedido(pedido);
