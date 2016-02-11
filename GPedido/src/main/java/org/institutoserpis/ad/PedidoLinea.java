@@ -64,6 +64,7 @@ public class PedidoLinea {
 	}
 
 	public void setPedido(Pedido pedido) {
+		pedido.getPedidoLinea().add(this);
 		this.pedido = pedido;
 	}
 	
@@ -77,4 +78,15 @@ public class PedidoLinea {
 		this.articulo = articulo;
 	}
 	
+	@Override
+	public String toString(){
+		return String.format("%s %s %s %s %s %s", 
+				id,
+				pedido == null ? null :pedido.getId(),
+				articulo ==null ?null : articulo.getId(),
+				precio,
+				unidades,
+				importe);
+		
+	}
 }
