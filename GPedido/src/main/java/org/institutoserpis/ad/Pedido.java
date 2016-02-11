@@ -1,12 +1,15 @@
 package org.institutoserpis.ad;
 
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.GenericGenerator;
 
@@ -15,7 +18,7 @@ public class Pedido {
 	private long id;
 	private Cliente cliente;
 	private Calendar fecha;
-	private List<PedidoLinea>
+	private List<PedidoLinea> pedidoLinea = new ArrayList<>();
 
 	@Id
 	@GeneratedValue(generator="increment")
@@ -46,6 +49,16 @@ public class Pedido {
 		this.fecha = fecha;
 	}
 	
+
+	@OneToMany(mappedBy="pedido")
+	public List<PedidoLinea> getPedidoLinea() {
+		return pedidoLinea;
+	}
+
+	public void setPedidoLinea(List<PedidoLinea> pedidoLinea) {
+		this.pedidoLinea = pedidoLinea;
+	}
+	
 	@Override
 	public String toString(){
 		return String.format("%s [cliente-%s] %s", 
@@ -54,6 +67,4 @@ public class Pedido {
 				fecha == null ? null : fecha.getTime()
 		);
 	}
-	
-	
 }

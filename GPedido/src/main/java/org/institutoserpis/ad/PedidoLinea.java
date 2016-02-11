@@ -76,4 +76,5 @@ public class PedidoLinea {
 	public void setArticulo(Articulo articulo) {
 		this.articulo = articulo;
 	}
+	
 }
