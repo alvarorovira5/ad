@@ -43,7 +43,14 @@ public class Pedido {
 		this.fecha = fecha;
 	}
 	
-	
+	@Override
+	public String toString(){
+		return String.format("%s %s %s", 
+				id,
+				cliente ==null ? null : cliente.getId(),
+				fecha == null ? null : fecha.getTime()
+		);
+	}
 	
 	
 }
